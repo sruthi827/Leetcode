@@ -1,0 +1,25 @@
+1/12/2024
+Two Sum Problem:
+my code:
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        n=len(nums)
+        l=[]
+        for i in range(n-1):
+            for j in range(i+1,n):
+                if nums[i]+nums[j]==target:
+                    l.append(i)
+                    l.append(j)
+        return l
+
+
+
+
+immprovised code:
+def twoSum(self, nums: List[int], target: int) -> List[int]:
+        d={}
+        for i,num in enumerate(nums):
+            complement=target-num
+            if complement in d:
+                return [d[complement],i]
+            d[num]=i
