@@ -1,0 +1,24 @@
+my code:
+  def isAnagram(self, s: str, t: str) -> bool:
+        res=True
+        if len(s)!=len(t):
+            return False
+        else:
+            for i in s:
+                if i  not in t or s.count(i)!=t.count(i):
+                    return False
+            return res#O(n*2)
+improvised code:
+1)def isAnagram(self, s: str, t: str) -> bool:
+        if len(s)!=len(t):
+            return False
+        else:
+            return sorted(s)==sorted(t)#O(nlog(n))
+2)class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        s_dict,t_dict={},{}
+        for char in s:
+            s_dict[char]=s_dict.get(char,0)+1
+        for char in t:
+            t_dict[char]=t_dict.get(char,0)+1
+        return s_dict==t_dict#O(n)
